@@ -1,0 +1,68 @@
+{
+  "name": "updater-example",
+  "description": "Example updater. Very basic demonstration of how updaters work.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/update/updater-example",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "update/updater-example",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/updater-example/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "through2": "^2.0.1"
+  },
+  "devDependencies": {
+    "gulp-format-md": "^0.1.9"
+  },
+  "keywords": [
+    "example",
+    "fix",
+    "lint",
+    "linter",
+    "maintain",
+    "plugin",
+    "plugins",
+    "up-to-date",
+    "update",
+    "update-plugin",
+    "update-updater",
+    "updater",
+    "updaterplugin"
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "common-minimal",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "related": {
+      "list": [
+        "update",
+        "generate",
+        "verb"
+      ]
+    },
+    "reflinks": [
+      "update",
+      "verb",
+      "verb-readme-generator"
+    ],
+    "lint": {
+      "reflinks": true
+    }
+  }
+}
