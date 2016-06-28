@@ -42,11 +42,11 @@ This updater will only modify a file named `example.txt` in the current working 
 
 Try the following steps to get familiarized with how update works:
 
-* [ ] run `update example` to execute the default task, which will append the string `foo` to the file's contents.
-* [ ] run `update example:foo` to execute the `foo` task, appending the string `foo` to the file's contents
-* [ ] run `update example:bar` to execute the `bar` task, appending the string `bar` to the file's contents
-* [ ] run `update example.abc` to execute the default task on the `abc` (sub-)updater, appending the string `abc:one` to the file's contents
-* [ ] run `update example.abc:one` to execute the `one` task on the `abc` (sub-)updater, appending the string `abc:one` to the file's contents
+* [ ] run `$ update example` to execute the default task, which will append the string `foo` to the file's contents.
+* [ ] run `$ update example:foo` to execute the `foo` task, appending the string `foo` to the file's contents
+* [ ] run `$ update example:bar` to execute the `bar` task, appending the string `bar` to the file's contents
+* [ ] run `$ update example.abc` to execute the default task on the `abc` (sub-)updater, appending the string `abc:one` to the file's contents
+* [ ] run `$ update example.abc:one` to execute the `one` task on the `abc` (sub-)updater, appending the string `abc:one` to the file's contents
 
 See [the code](updatefile.js) for more details.
 
