@@ -2,35 +2,54 @@
 
 var through = require('through2');
 
-module.exports = function(app) {
-  var cwd = app.options.dest || app.cwd;
+/**
+ * Export the "updater" function
+ */
 
+module.exports = function(app) {
   app.task('foo', function() {
-    // here, "this" is the task instance
-    return app.src('example.txt', {cwd: cwd})
-      .pipe(append(this.name))
-      .pipe(app.dest(cwd));
+    return updateExample(app, 'foo');
   });
 
   app.task('bar', function() {
-    return app.src('example.txt', {cwd: cwd})
-      .pipe(append(this.name))
-      .pipe(app.dest(cwd));
+    return updateExample(app, 'bar');
   });
 
-  // register an updater (this could be required from node_modules instead)
+  // register a "sub-updater"
   app.register('abc', function(abc) {
-    // here, "this" is the updater instance (abc)
-    this.task('one', function() {
-      return app.src('example.txt', {cwd: cwd})
-        .pipe(append(abc.name + ':' + this.name))
-        .pipe(app.dest(cwd));
+    this.task('default', function() {
+      return updateExample(app, 'abc:default');
     });
-    this.task('default', ['one']);
   });
-
   app.task('default', ['foo']);
 };
+
+/**
+ * Append the given string to `example.txt` and re-write the file to the current
+ * working directory.
+ *
+ * The `.src` and `.dest` methods work exactly like gulp's (we use the same libs from the
+ * gulp team under the hood)
+ *
+ * @param {Object} `app` Instance of update, to get the cwd. Pass `--dest` on the command line to set `app.options.dest`
+ * @return {Stream} vinyl stream
+ * @api public
+ */
+
+function updateExample(app, str) {
+  var cwd = app.options.dest || app.cwd;
+  return app.src('example.txt', {cwd: cwd})
+    .pipe(append(str))
+    .pipe(app.dest(cwd));
+}
+
+/**
+ * Append the given `str` to `file.contents`
+ *
+ * @param {String} `str`
+ * @return {Stream} vinyl stream
+ * @api public
+ */
 
 function append(str) {
   return through.obj(function(file, enc, next) {
