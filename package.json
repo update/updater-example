@@ -1,7 +1,7 @@
 {
   "name": "updater-example",
-  "description": "Example updater. Very basic demonstration of how updaters work.",
-  "version": "0.1.0",
+  "description": "This is an example updater for the `update` library, to provide a basic demonstration of how updaters work.",
+  "version": "0.1.1",
   "homepage": "https://github.com/update/updater-example",
   "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
   "repository": "update/updater-example",
@@ -10,7 +10,10 @@
   },
   "license": "MIT",
   "files": [
-    "index.js"
+    "index.js",
+    "LICENSE",
+    "README.md",
+    "updatefile.js"
   ],
   "main": "index.js",
   "engines": {
@@ -51,8 +54,8 @@
     ],
     "related": {
       "list": [
-        "update",
         "generate",
+        "update",
         "verb"
       ]
     },
